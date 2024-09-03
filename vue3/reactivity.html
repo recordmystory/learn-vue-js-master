@@ -1,0 +1,16 @@
+<div id="app"></div>
+
+<script>
+    let data = {
+        a: 10
+    }
+
+    let app = new Proxy(data, { // app의 내용이 바뀌게 되면 data의 내용도 같이 바뀜
+        get() {
+            console.log('값 접근');
+        },
+        set() {
+            console.log('값 갱신');
+        }
+    })
+</script>
