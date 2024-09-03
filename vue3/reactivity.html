@@ -1,16 +1,24 @@
-<div id="app"></div>
+<div id="app">
+    <!-- 해당 태그에 무언가 렌더링 될 예정 -->
+</div>
 
 <script>
     let data = {
-        a: 10
+        message: 10
+    }
+    
+    function render(sth){
+        document.querySelector('#app').innerHTML = sth;
     }
 
     let app = new Proxy(data, { // app의 내용이 바뀌게 되면 data의 내용도 같이 바뀜
         get() {
             console.log('값 접근');
         },
-        set() {
+        set(target, prop, newValue) {
             console.log('값 갱신');
+            target[prop] = newValue;
+            render(newValue);
         }
     })
 </script>
