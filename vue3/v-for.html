@@ -1,0 +1,16 @@
+<div id="app">
+    <ul>
+        <li v-for="item in items">{{ item }}</li>
+    </ul>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                items: ['삼성', '네이버', '배민']
+            }
+        }
+    }).mount('#app'); // mount : 생성한 인스턴스를 어느 태그에 적용할건지
+</script>

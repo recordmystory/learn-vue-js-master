@@ -1,0 +1,20 @@
+<div id="app">
+    <p>{{ cnt }}</p>
+    <button v-on:click="addCnt">+</button> <!-- 디렉티브 -->
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                cnt: 0 // 리액티비티 주입
+            }
+        }, 
+        methods: {
+            addCnt() {
+                this.cnt++; // this : createApp 안에 있는 값에 접근
+            }
+        }
+    }).mount('#app'); // mount : 생성한 인스턴스를 어느 태그에 적용할건지
+</script>
