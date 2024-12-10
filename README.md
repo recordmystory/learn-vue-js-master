@@ -233,3 +233,39 @@ function ref(value) {
     }).mount('#app');
 </script>
 ```
+
+### 같은 레벨의 컴포넌트간 데이터 전달 방법
+=> same-componenet-level.html
+
+ 로그인 버튼을 누를 때 app-header의 내용이 바뀌도록 코딩
+ 태그간 신호를 보내서 텍스트 변경
+
+ appContents 에서 Root로 이벤트 올리기 → 거기서 바뀐 데이터를 appHeader로 흘려보냄 : 삼각형 구조 생각하기
+ 루트로 이벤트를 올리는 이유 : 같은 레벨 컴포넌트끼리 직접적으로 통신할 수 없기 때문에
+
+### 템플릿 문법 소개
+=> data-binding.html , class-styling.html
+
+- 데이터 바인딩
+    
+    뷰 인스턴스에서 정의한 속성들을 화면에 표시하는 방법
+    
+    가장 기본적인 방식은 콧수염 괄호 ⇒ {{ msg }}
+    
+
+- 디렉티브
+    
+    화면 조작을 쉽게 하기 위한 문법 ( v-xx ) : 실무에서는 축약형으로 태그 어트리뷰트 오는 부분에 :xxx 이런식으로 작성한다함
+    
+    ex)
+    
+    v-bind
+    
+    v-on
+    
+    v-model
+    
+    v-if
+    
+    v-show
+  
