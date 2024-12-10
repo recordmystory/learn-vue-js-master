@@ -1,0 +1,27 @@
+<style>
+    .primary { color: blueviolet; }
+</style>
+
+<div id="app">
+    <h1>클래스 바인딩</h1>
+    <div :class="textClass">데이터 바인딩 예제</div>
+
+    <h1>아이디 바인딩</h1>
+    <section :id="sectionId" :style="sectionStyle"> <!-- 원래는 v-bind고 축약으로 :xx 식으로 사용할 수 있음, style도 마찬가지 -->
+        반갑습니다.
+    </section>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+    Vue.createApp({
+       data() {
+        return {
+            // 뷰에 선언된 데이터를 이용해 화면에 있는 태그의 attribute를 동적으로 조작할 수 있음
+            textClass: 'primary',
+            sectionId: 'tab1',
+            sectionStyle: { color: 'palegreen' }
+        }
+       } 
+    }).mount('#app');
+</script>

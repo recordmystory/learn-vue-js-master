@@ -1,0 +1,51 @@
+<!-- 
+ 같은 레벨의 컴포넌트간 데이터 전달 방법
+ 로그인 버튼을 누를 때 app-header의 내용이 바뀌도록 코딩
+ 태그간 신호를 보내서 텍스트 변경
+
+ * appContents 에서 Root로 이벤트 올리기 => 거기서 바뀐 데이터를 appHeader로 흘려보냄
+ (루트로 이벤트를 올리는 이유는 같은 레벨 컴포넌트끼리 직접적으로 통신할 수 없기 때문에)
+-->
+<div id="app">
+    <app-header v-bind:app-title="message"></app-header>
+    <app-contents v-on:custom-login="recieve"></app-contents>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+    var appHeader = {
+        props: ['appTitle'], // app-title == appTitle
+        template: '<h1>{{ appTitle }}</h1>',
+    };
+
+    var appContents = {
+        template: `
+        <p>
+            <button v-on:click="sendEvent">로그인</button>
+        </p>
+        `,
+        methods: {
+            sendEvent() {
+                this.$emit('custom-login'); // custom-login 이벤트 발생
+            }
+        }
+    };
+
+    Vue.createApp({
+        components: {
+            'app-header': appHeader,
+            'app-contents': appContents
+        },
+        data() {
+            return {
+                message: '' // 초기 메시지 설정
+            };
+        },
+        methods: {
+            recieve() { // custom-login 이벤트 처리
+                console.log('recieve 이벤트 실행');
+                this.message = '로그인 되었습니다'; // 상태 업데이트
+            }
+        }
+    }).mount('#app');
+</script>

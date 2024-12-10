@@ -1,0 +1,27 @@
+<div id="app">
+    <!-- login값이 true일 경우 위 p 태그 렌더링, false일 경우 아래 p 태그 렌더링 -->
+    <p v-if="login">로그인 되었습니다</p>
+    <p v-else>로그인 하세요</p>
+    <button v-on:click="loginUser">로그인</button>
+    
+    <hr>
+
+    <p v-show="login">로그인 되었습니다</p> <!-- v-show: display: none on/off 처리됨-->
+    <button v-on:click="loginUser">로그인</button>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+   Vue.createApp({
+        data() {
+            return {
+                login: false
+            }
+        },
+        methods: {
+            loginUser() {
+                this.login = !this.login; // 토글링
+            }
+        }
+   }).mount('#app');
+</script>
