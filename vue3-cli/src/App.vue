@@ -1,35 +1,40 @@
+<!-- HTML 영역 -->
 <template>
-  <AppHeader 
-    v-bind:appTitle="message"
-    v-on:change="changeMessage">
-  </AppHeader>
+  <Appheader></Appheader>
+  <div>
+    {{ message }}
+  </div>
+  <button @click="showAlert">경고</button>
 </template>
 
+<!-- JS 영역 -->
 <script>
-// import 컴포넌트이름 from './컴포넌트 경로'
-import AppHeader from './components/AppHeader.vue'
+// import 라이브러리 from '라이브러리명'
+// import 파일이름 from './파일 경로'
+import AppHeader from './components/AppHeader.vue';
 
 export default {
+  // 인스턴스 옵션 속성
+  name: 'App',
   components: {
-    // '컴포넌트이름': 컴포넌트 내용
-    // 'app-header': AppHeader,
-    // 'AppHeader': AppHeader,
-    // AppHeader: AppHeader,
-    AppHeader
-  },
-  data() {
-    return {
-      message: '앱 헤더 컴포넌트'
-    }
+    Appheader
   },
   methods: {
-    changeMessage() {
-      this.message = '변경됨'
+    showAlert() {
+      alert('hi');
     }
   }
-}
+} 
 </script>
 
-<style scoped>
-
+<!-- CSS 영역 -->
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
 </style>
