@@ -256,6 +256,12 @@ function ref(value) {
 - 디렉티브
     
     화면 조작을 쉽게 하기 위한 문법 ( v-xx ) : 실무에서는 축약형으로 태그 어트리뷰트 오는 부분에 :xxx 이런식으로 작성한다함
+
+### 싱글 파일 컴포넌트
+
+HTML, CSS, JS 코드를 한 파일에서 관리하는 방법
+
+Vue 확장자를 가진 파일을 모두 싱글 파일 컵포넌트라 함
     
     ex)
     
@@ -268,4 +274,31 @@ function ref(value) {
     v-if
     
     v-show
-  
+
+- v-model
+    
+    사용 예시 : input box에 있는 데이터를 그대로 vue의 데이터에 엮고싶을 때 사용할 수 있음
+    
+- @submit
+    
+    ```html
+    <form @submit="이벤트명">
+    	<!-- ............
+    			...........
+    			..........
+    	-->
+    </form>
+    ```
+    
+    v-on:submit을 축약해서 사용 가능함
+    
+
+- axios 라이브러리 설치 참고
+
+https://github.com/axios/axios
+
+- JSONPlaceholder
+    
+    서버쪽으로 보내고 받는 동작을 해보고 싶을 때 간단하게 사용할 수 있는 라이브러리
+    
+    [JSONPlaceholder - Free Fake REST API](https://jsonplaceholder.typicode.com/)
