@@ -1,27 +1,34 @@
 <!-- HTML 영역 -->
 <template>
-  <Appheader></Appheader>
+  <!-- 'AppHeader' 대소문자를 정확히 맞추어 사용 -->
   <div>
-    {{ message }}
+    <AppHeader v-bind:appTitle="message" v-on:change="changeMsg"></AppHeader>
   </div>
-  <button @click="showAlert">경고</button>
+  <div>
+    <button @click="showAlert">경고</button>
+  </div>
 </template>
 
 <!-- JS 영역 -->
 <script>
-// import 라이브러리 from '라이브러리명'
-// import 파일이름 from './파일 경로'
 import AppHeader from './components/AppHeader.vue';
 
 export default {
-  // 인스턴스 옵션 속성
   name: 'App',
   components: {
-    Appheader
+    AppHeader
+  },
+  data() {
+    return {
+      message: '앱 헤더 컴포넌트'
+    }
   },
   methods: {
     showAlert() {
       alert('hi');
+    },
+    changeMsg() {
+      this.message = '변경'
     }
   }
 } 
