@@ -23,31 +23,61 @@
 
 <script>
   import axios from 'axios'
+  import { ref } from 'vue';
 
   export default {
-    data() {
-      return {
-        username: '',
-        password: ''
-      }
-    },
-    methods: {
-      submitForm(/** evt **/) { // form 태그내에 사용한 디렉티브로 인해 해당 이벤트를 받을 수 있음
-        // evt.preventDefault();
-        
-        const data = { username: this.username, password: this.password }; // Vue의 데이터 
-        axios.post('https://jsonplaceholder.typicode.com/users'/**  {
-          // username: this.username,
-          // password: this.password
-          
-        } **/, data)
-        .then(response => {
-          console.log(response);
+
+    mport axios from 'axios';
+import { ref } from 'vue';
+
+export default {
+  setup() {
+    const username = ref('');
+    const password = ref('');
+
+    const submitForm = () => {
+      axios
+        .post('https://jsonplaceholder.typicode.com/users', {
+          username: username.value,
+          password: password.value,
+        })
+        .then((response) => {
+          console.log(response.data);
         });
+    };
+
+    return { username, password, submitForm };
+  }
+    // methods: {
+    //   logText() {
+    //     this.password
+    //   }
+    // }
+
+    // [ Option API ]
+    // data() {
+    //   return {
+    //     username: '',
+    //     password: ''
+    //   }
+    // },
+    // methods: {
+    //   submitForm(/** evt **/) { // form 태그내에 사용한 디렉티브로 인해 해당 이벤트를 받을 수 있음
+    //     // evt.preventDefault();
         
-        // console.log('제출');
-      }
-    }
+    //     const data = { username: this.username, password: this.password }; // Vue의 데이터 
+    //     axios.post('https://jsonplaceholder.typicode.com/users'/**  {
+    //       // username: this.username,
+    //       // password: this.password
+          
+    //     } **/, data)
+    //     .then(response => {
+    //       console.log(response);
+    //     });
+        
+    //     // console.log('제출');
+    //   }
+    // }
   }
 </script>
 

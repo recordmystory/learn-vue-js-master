@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue'; // App.vue 경로 확인
 
-createApp(App).mount('#app')
+createApp(App).mount('#app');
